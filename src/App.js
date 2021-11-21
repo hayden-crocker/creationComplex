@@ -1,23 +1,59 @@
-import logo from './logo.svg';
-import './App.css';
+import { useState, useEffect } from 'react';
+import firebase from './firebase.js';
+import Form from './Form.js';
+import PlanetGallery from './PlanetGallery.js';
+import PlanetInformation from './PlanetInformation.js';
 
 function App() {
+  const [planets, setPlanets] = useState([]);
+
+  useEffect(() => {
+    // Call Firebase data 
+    const dbRef = firebase.database().ref();
+
+    dbRef.on('value', (response) => {
+      
+      const newState = [];
+      
+      const data = response.val();
+
+      for (let property in data) {
+        newState.push({
+          astralName: data[property].planetName,
+          planetImage: data[property].src,
+          planetTerrain: data[property].terrain,
+          planetClimate: data[property].climate,
+          moonNumber: data[property].numberOfMoons,
+          namedMoons: data[property].popularMoons
+
+        })
+      }
+        
+      setPlanets(newState);
+    });
+  }, [])
+
   return (
     <div className="App">
-      <header className="App-header">
-        <img src={logo} className="App-logo" alt="logo" />
-        <p>
-          Edit <code>src/App.js</code> and save to reload.
-        </p>
-        <a
-          className="App-link"
-          href="https://reactjs.org"
-          target="_blank"
-          rel="noopener noreferrer"
-        >
-          Learn React
-        </a>
+      <header>
+        <h1 className="wrapper">Creation Complex </h1>
+        <Form />
       </header>
+      <main>
+        <div className="planetInfo">
+        {planets.map((props) => {
+          return  <PlanetInformation
+            planetArray={props}
+          />
+        })}
+        </div>
+          <PlanetGallery
+          planetArray={planets}
+        />
+      </main>
+      <footer>
+        Created at <a href="#">Juno College</a>
+      </footer>
     </div>
   );
 }

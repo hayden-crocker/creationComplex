@@ -15,6 +15,9 @@
       user's mobile device or desktop. See https://developers.google.com/web/fundamentals/web-app-manifest/
     -->
     <link rel="manifest" href="%PUBLIC_URL%/manifest.json" />
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Space+Mono&family=Staatliches&display=swap" rel="stylesheet">
     <!--
       Notice the use of %PUBLIC_URL% in the tags above.
       It will be replaced with the URL of the `public` folder during the build.
@@ -24,7 +27,7 @@
       work correctly both with client-side routing and a non-root public URL.
       Learn how to configure a non-root public URL by running `npm run build`.
     -->
-    <title>React App</title>
+    <title>Solar Systemis</title>
   </head>
   <body>
     <noscript>You need to enable JavaScript to run this app.</noscript>
@@ -39,5 +42,108 @@
       To begin the development, run `npm start` or `yarn start`.
       To create a production bundle, use `npm run build` or `yarn build`.
     -->
+
+    <!-- FIRBASE  -->
+    <!-- <script src="https://www.gstatic.com/firebasejs/8.3.1/firebase-app.js"></script>
+    <script src="https://www.gstatic.com/firebasejs/8.3.1/firebase-database.js"></script>
+    <script>
+      const firebaseConfig = {
+        apiKey: "AIzaSyBN7jKD11FkiW-saUJwy4cXk2xA70H7PqI",
+        authDomain: "solar-systemis.firebaseapp.com",
+        projectId: "solar-systemis",
+        storageBucket: "solar-systemis.appspot.com",
+        messagingSenderId: "1064570618685",
+        appId: "1:1064570618685:web:66b25be30e703e8ab7fb54"
+      };
+      firebase.initializeApp(firebaseConfig);
+
+      const dbRef = firebase.database().ref();
+
+      const solarSystem = {
+        galacticStar: {
+          name: 'Solaris',
+          population: 0,
+          terrain: 'fire',
+          numberOfMoons: 0,
+          popularMoons: 'none',
+          climate: 'death',
+          src: './assets/pngkey.com-real-sun-png-554047.png'
+        },
+        planetOne: {
+          name: 'Kabloosh',
+          population: 200000,
+          terrain: 'rainforest',
+          numberOfMoons: 3,
+          popularMoons: ['krismyth', 'zandith', 'flogamosh'],
+          climate: 'tropical',
+          src: './assets/kisspng-earth-planet-x637z-43-kepler-space-telescope-exopl-5d2b8926bc84d1.2961642515631342467722.png'
+        },
+        planetTwo: {
+          name: 'Zaphoid',
+          population: 2000,
+          terrain: 'ocean',
+          numberOfMoons: 5,
+          popularMoons: ['zigmantix', 'forx', 'dresh'],
+          climate: 'constant rain',
+          src: './assets/pngfind.com-captain-planet-png-6856012.png'
+        },
+        planetThree: {
+          name: 'Gilead Prime',
+          population: 5000000,
+          terrain: 'city scape',
+          numberOfMoons: 16,
+          popularMoons: ['empirous', 'galatron', 'qwerty'],
+          climate: 'polluted',
+          src: './assets/pngfind.com-pluto-planet-png-1413189.png'
+        },
+        planetFour: {
+          name: 'Ceyan',
+          population: 10000,
+          terrain: 'tundra',
+          numberOfMoons: 1,
+          popularMoons: 'zevia',
+          climate: 'freezing',
+          src: './assets/pngfind.com-planet-png-589870.png',
+        },
+        planetFive: {
+          name: 'Juc',
+          population: 300567,
+          terrain: 'desert',
+          numberOfMoons: 6,
+          popularMoons: ['Elax 6', 'dardunon', 'hok'],
+          climate: 'hot',
+          src: './assets/pngfind.com-planet-png-589786.png'
+        },
+        planetSix: {
+          name: 'Kaver Es-4',
+          population: 1,
+          terrain: 'canyons',
+          numberOfMoons: 30,
+          popularMoons: ['hopper', 'kranius', 'ex-5372'],
+          climate: 'temperate',
+          src: './assets/pngfind.com-purple-planet-png-4520924.png'
+        },
+        planetSeven: {
+          name: 'No',
+          population: 4567,
+          terrain: 'rainforest',
+          numberOfMoons: 130,
+          popularMoons: ['kalamar', 'eko-807', 'galap'],
+          climate: 'tropical',
+          src: './assets/pngwing.com.png'
+        },
+      };
+
+      const changeSetting = (settingToChange) => {
+        firebase.database().ref('/Planets').update(settingToChange);
+      };
+
+      changeSetting(solarSystem);
+
+      dbRef.on('value', (data) => { -->
+        <!-- console.log(data.val())
+      }) -->
+
+    </script>
   </body>
 </html>
