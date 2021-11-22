@@ -37,7 +37,9 @@ function App() {
     <div className="App">
       <header>
         <h1 className="wrapper">Creation Complex </h1>
-        <Form />
+        <Form
+          planetArray={planets}
+        />
       </header>
       <main>
         <div className="planetInfo">

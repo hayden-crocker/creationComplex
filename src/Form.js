@@ -4,15 +4,22 @@ import firebase from "./firebase.js";
 
 function Form() {
     const [userInput, setUserInput] = useState({
-        astralName: "",
+        planetName: '',
         terrain: "",
         climate: "",
         numberOfMoons: "",
         popularMoons: "",
-        planetImage: '',
+        src: '',
     });
+
     const handleChange = (event) => {
-        setUserInput(event.target.value)
+            const target = event.target;
+            const value = target.value;
+            const name = target.name;
+        setUserInput({
+                ...userInput,
+                [name]: value
+        });
     }
     const handleSubmit = (event) => {
         event.preventDefault();
@@ -20,61 +27,85 @@ function Form() {
         const dbRef = firebase.database().ref();
     
         dbRef.push(userInput);
-    
-        setUserInput('');
-    
     }
     return (
         <form onSubmit={handleSubmit}>
-            <label htmlFor="newPlanetName">Create a Name for your Planet</label>
+            <label htmlFor="planetName">Create a Name for your Planet</label>
             <input
-                id="newPlanetName"
+                id="planetName"
                 type="text"
-                name="newPlanetName"
-                value={userInput.astralName}
+                name="planetName"
+                value={userInput.planetName}
                 onChange={handleChange}
             />
-            <label htmlFor="newTerrain">Describe your Terrain</label>
+            <label htmlFor="terrain">Describe your Terrain</label>
             <input
-                id="newTerrain"
+                id="terrain"
                 type="text"
-                name="newTerrain"
+                name="terrain"
                 value={userInput.terrain}
                 onChange={handleChange}
             />
-            <label htmlFor="newClimate">Describe your climate</label>
+            <label htmlFor="climate">Describe your climate</label>
             <input
-                id="newClimate"
+                id="climate"
                 type="text"
-                name="newClimate"
+                name="climate"
                 value={userInput.climate}
                 onChange={handleChange}
             />
-            <label htmlFor="newMoonNumber">How many Moons?</label>
+            <label htmlFor="numberOfMoons">How many Moons?</label>
             <input
-                id="newMoonNumber"
+                id="numberOfMoons"
                 type="text"
-                name="newMoonNumber"
+                name="numberOfMoons"
                 value={userInput.numberOfMoons}
                 onChange={handleChange}
             />
-            <label htmlFor="newPopular">Give some Moons a name</label>
+            <label htmlFor="popularMoons">Give some Moons a name</label>
             <input
-                id="newPopular"
+                id="popularMoons"
                 type="text"
-                name="newPopular"
+                name="popularMoons"
                 value={userInput.popularMoons}
                 onChange={handleChange}
             />
-            <label htmlFor="planetPicture">Upload a Picture of your Planet</label>
-            <input
-                id="planetPicture"
-                type="file"
-                name="planetPicture"
-                value={userInput.planetImage}
-                onChange={handleChange}
-            />
-            <button>Create Your Planet!</button>
+            <label htmlFor="src">Pick a Planet Piture</label>
+            <div className="choosePlanet">
+                <label htmlFor="planetImage1"><img src="./assets/pngfind.com-purple-planet-png-4520924.png" alt="Purple Planet" /></label>
+                <input
+                    id="planetImage1"
+                    type="checkbox"
+                    name="src"
+                    value="./assets/pngfind.com-purple-planet-png-4520924.png"
+                    onChange={handleChange}
+                />
+                <label htmlFor="planetImage2"><img src="./assets/pngfind.com-planet-png-589786.png" alt="Desert Planet" /></label>
+                <input
+                    id="planetImage2"
+                    type="checkbox"
+                    name="src"
+                    value='./assets/pngfind.com-planet-png-589786.png'
+                    onChange={handleChange}
+                />
+                <label htmlFor="planetImage3"><img src="./assets/pngfind.com-captain-planet-png-6856012.png" alt="Captain Planet" /></label>
+                <input
+                    id="planetImage3"
+                    type="checkbox"
+                    name="src"
+                    value="./assets/pngfind.com-captain-planet-png-6856012.png"
+                    onChange={handleChange}
+                />
+                <label htmlFor="planetImage4"><img src="./assets/pngwing.com.png" alt="Green Planet" /></label>
+                <input
+                    id="planetImage4"
+                    type="checkbox"
+                    name="src"
+                    value="./assets/pngwing.com.png"
+                    onChange={handleChange}
+                />
+            </div>
+            <button onSubmit={handleSubmit}>Create Your Planet!</button>
         </form>
     )
 }
