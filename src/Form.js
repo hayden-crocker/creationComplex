@@ -10,6 +10,7 @@ function Form() {
         numberOfMoons: "",
         popularMoons: "",
         src: "",
+        population: 0
     });
 
     const handleChange = (event) => {
@@ -22,7 +23,7 @@ function Form() {
         });
         console.log(event.target)
     }
-    
+
     const handleSubmit = (event) => {
         event.preventDefault();
     
@@ -37,6 +38,7 @@ function Form() {
             numberOfMoons: "",
             popularMoons: "",
             src: "",
+            population: 0
         });
     }
     return (

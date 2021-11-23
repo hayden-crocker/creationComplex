@@ -4,12 +4,25 @@ import { useState, useEffect } from 'react';
 function PlanetGallery({ planetArray }) {
     const [userSelect, setUserSelect] = useState(false);
     const [likes, setLikes] = useState(0);
+    const [displayPlanet, setDisplayPlanet] = useState({
+        astralName: "",
+        planetTerrain: "",
+        planetClimate: "",
+        moonNumber: "",
+        namedMoons: "",
+        planetPopulation: 0
+    });
 
-    const handleClick = () => {
+    const handleClick = (e) => {
         setUserSelect(!userSelect)
-        if (userSelect === false) {
+        if (userSelect === true) {
             return planetArray
         }
+        setDisplayPlanet(planetArray[e.target.value])
+    }
+    
+    const handleLikes = () => {
+        setLikes(likes + 1);
     }
 
     useEffect(() => {
@@ -18,34 +31,30 @@ function PlanetGallery({ planetArray }) {
         }
     }, [planetArray, userSelect])
 
-    const handleLikes = () => {
-        setLikes(likes + 1);
-    }
 
 
     return (
-
         <>
             <div className="planetInfo">
                     
                 <ul>
                     <li>
-                        <h2>{userSelect ? `Name: ${planetArray.astralName}` : "Name:"} </h2>
+                        {userSelect ? (<h2>Name: {displayPlanet.astralName}</h2>) : (<h2>Name:</h2>)}
                     </li>
                     <li>
-                        <p>{userSelect ? `Terrain: ${planetArray.planetTerrain}` : "Terrain:"}</p>
+                        {userSelect ? (<p>Terrain: {displayPlanet.planetTerrain}</p>) : (<p>Terrain:</p>)}
                     </li>
                     <li>
-                        <p>{userSelect ? `Climate: ${ planetArray.planetClimate }` : "Climate:"}</p>
+                        {userSelect ? (<p>Climate: {displayPlanet.planetClimate}</p>) : (<p>Climate:</p>)}
                     </li>
                     <li>
-                        <p>{userSelect ? `Number of Moons: ${planetArray.moonNumber}` : "Number of Moons:"} </p>
+                        {userSelect ? (<p>Number of Moons: {displayPlanet.moonNumber}</p>) : (<p>Number of Moons:</p>)}
                     </li>
                     <li>
-                        <p>{userSelect ? `Popular Moons: ${planetArray.namedMoons}` : "Popular Moons"} </p>
+                        {userSelect ? (<p>Popular Moons: {displayPlanet.namedMoons}</p>) : (<p>Popular Moons:</p>)}
                     </li>
                     <li>
-                        <p>Population: {`${planetArray.planetPopulation + likes}`} </p>
+                        {userSelect ? (<p>Population: {displayPlanet.planetPopulation + likes}</p>) : (<p>Population:</p>)}
                     </li>
                 </ul>
                         
@@ -54,13 +63,16 @@ function PlanetGallery({ planetArray }) {
             <div className="planetGallery">
                 <ul>
                     {
-                    planetArray.map((planet) => {
+                    planetArray.map((planet, index) => {
                         return (
                                 <li key={planet.id}>
                                     <h2>{planet.astralName}</h2>
                                     <img src={planet.planetImage} alt={planet.astralName}/>
-                                    <button onClick={handleClick}>More Info</button>
-                                    <button onClick={handleLikes}>♥️</button>
+                                    <button
+                                    onClick={handleClick}
+                                    value={index}
+                                    >More Info</button>
+                                    <button onClick={handleLikes}>Live Here</button>
                                 </li>
                         )
                     })

@@ -104,6 +104,9 @@ main{
   grid-template-columns: 1fr 3fr;
   background-color: #000;
   color: gold;
+  position: relative;
+  overflow: scroll;
+  height: 550px;
 }
 
 ul {
@@ -121,6 +124,9 @@ li {
   border-radius: 25px;
   padding-left: 20px;
   font-family: 'Space Mono', monospace;
+  height: 525px;
+  position: sticky;
+  top: 0;
 }
 
 .planetInfo li {
