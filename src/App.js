@@ -49,7 +49,8 @@ function App() {
         />
       </main>
       <footer>
-        Created at <a href="#">Juno College</a>
+        Created at <a href="https://junocollege.com
+">Juno College</a>
       </footer>
     </div>
   );

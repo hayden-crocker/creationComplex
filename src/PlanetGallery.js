@@ -65,7 +65,7 @@ function PlanetGallery({ planetArray }) {
                     {
                     planetArray.map((planet, index) => {
                         return (
-                                <li key={planet.id}>
+                                <li key={index}>
                                     <h2>{planet.astralName}</h2>
                                     <img src={planet.planetImage} alt={planet.astralName}/>
                                     <button

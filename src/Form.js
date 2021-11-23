@@ -22,7 +22,6 @@ function Form() {
                 ...userInput,
                 [name]: value
         });
-        console.log(event.target)
     }
 
     const handleSubmit = (event) => {
