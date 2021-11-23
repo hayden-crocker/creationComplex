@@ -94,6 +94,11 @@ button{
   grid-row: 13 / 14;
 }
 
+button:hover, 
+button:focus {
+  border: 2px solid limegreen;
+}
+
 main{
   display: grid; 
   grid-template-columns: 1fr 3fr;
@@ -149,6 +154,7 @@ li {
 .planetGallery img{
   margin: 10px auto;
 }
+
 
 footer {
   text-align: center;

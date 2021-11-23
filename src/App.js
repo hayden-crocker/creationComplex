@@ -2,7 +2,7 @@ import { useState, useEffect } from 'react';
 import firebase from './firebase.js';
 import Form from './Form.js';
 import PlanetGallery from './PlanetGallery.js';
-import PlanetInformation from './PlanetInformation.js';
+
 
 function App() {
   const [planets, setPlanets] = useState([]);
@@ -24,8 +24,8 @@ function App() {
           planetTerrain: data[property].terrain,
           planetClimate: data[property].climate,
           moonNumber: data[property].numberOfMoons,
-          namedMoons: data[property].popularMoons
-
+          namedMoons: data[property].popularMoons,
+          planetPopulation: data[property].population
         })
       }
         
@@ -42,13 +42,6 @@ function App() {
         />
       </header>
       <main>
-        <div className="planetInfo">
-        {planets.map((props) => {
-          return  <PlanetInformation
-            planetArray={props}
-          />
-        })}
-        </div>
           <PlanetGallery
           planetArray={planets}
         />

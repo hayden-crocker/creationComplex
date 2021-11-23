@@ -4,12 +4,12 @@ import firebase from "./firebase.js";
 
 function Form() {
     const [userInput, setUserInput] = useState({
-        planetName: '',
+        planetName: "",
         terrain: "",
         climate: "",
         numberOfMoons: "",
         popularMoons: "",
-        src: '',
+        src: "",
     });
 
     const handleChange = (event) => {
@@ -20,13 +20,24 @@ function Form() {
                 ...userInput,
                 [name]: value
         });
+        console.log(event.target)
     }
+    
     const handleSubmit = (event) => {
         event.preventDefault();
     
         const dbRef = firebase.database().ref();
     
         dbRef.push(userInput);
+
+        setUserInput({
+            planetName: "",
+            terrain: "",
+            climate: "",
+            numberOfMoons: "",
+            popularMoons: "",
+            src: "",
+        });
     }
     return (
         <form onSubmit={handleSubmit}>
@@ -37,6 +48,7 @@ function Form() {
                 name="planetName"
                 value={userInput.planetName}
                 onChange={handleChange}
+                required
             />
             <label htmlFor="terrain">Describe your Terrain</label>
             <input
@@ -45,6 +57,7 @@ function Form() {
                 name="terrain"
                 value={userInput.terrain}
                 onChange={handleChange}
+                required
             />
             <label htmlFor="climate">Describe your climate</label>
             <input
@@ -61,6 +74,7 @@ function Form() {
                 name="numberOfMoons"
                 value={userInput.numberOfMoons}
                 onChange={handleChange}
+                required
             />
             <label htmlFor="popularMoons">Give some Moons a name</label>
             <input
@@ -69,6 +83,7 @@ function Form() {
                 name="popularMoons"
                 value={userInput.popularMoons}
                 onChange={handleChange}
+                required
             />
             <label htmlFor="src">Pick a Planet Piture</label>
             <div className="choosePlanet">
@@ -105,7 +120,7 @@ function Form() {
                     onChange={handleChange}
                 />
             </div>
-            <button onSubmit={handleSubmit}>Create Your Planet!</button>
+            <button>Create Your Planet!</button>
         </form>
     )
 }
