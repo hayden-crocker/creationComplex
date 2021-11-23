@@ -89,7 +89,7 @@ function Form() {
             />
             <label htmlFor="src">Pick a Planet Piture</label>
             <div className="choosePlanet">
-                <label htmlFor="planetImage1"><img src="./assets/pngfind.com-purple-planet-png-4520924.png" alt="Purple Planet" /></label>
+                <label htmlFor="planetImage1"><img src='./assets/pngfind.com-purple-planet-png-4520924.png' alt="Purple Planet" /></label>
                 <input
                     id="planetImage1"
                     type="checkbox"

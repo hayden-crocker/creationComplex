@@ -1,3 +1,4 @@
+import './App.css';
 import { useState, useEffect } from 'react';
 import firebase from './firebase.js';
 import Form from './Form.js';
