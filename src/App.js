@@ -3,6 +3,7 @@ import { useState, useEffect } from 'react';
 import firebase from './firebase.js';
 import Form from './Form.js';
 import PlanetGallery from './PlanetGallery.js';
+import backgroundImage from './pexels-photo-998641.jpeg'
 
 
 function App() {
@@ -42,7 +43,7 @@ function App() {
           planetArray={planets}
         />
       </header>
-      <main>
+      <main style={{ backgroundImage: `url(${backgroundImage})` }}>
           <PlanetGallery
           planetArray={planets}
         />

@@ -100,7 +100,6 @@ button:focus {
 }
 
 main{
-  background-image: url('./assets/pexels-photo-998641.jpeg');
   display: grid; 
   grid-template-columns: 1fr 3fr;
   background-color: #000;

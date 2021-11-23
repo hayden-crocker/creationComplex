@@ -2,6 +2,7 @@ import { useState } from 'react';
 import firebase from "./firebase.js";
 
 
+
 function Form() {
     const [userInput, setUserInput] = useState({
         planetName: "",
@@ -89,7 +90,7 @@ function Form() {
             />
             <label htmlFor="src">Pick a Planet Piture</label>
             <div className="choosePlanet">
-                <label htmlFor="planetImage1"><img src='./assets/pngfind.com-purple-planet-png-4520924.png' alt="Purple Planet" /></label>
+                <label htmlFor="planetImage1"><img src="./assets/pngfind.com-purple-planet-png-4520924.png" alt="Purple Planet" /></label>
                 <input
                     id="planetImage1"
                     type="checkbox"
@@ -97,7 +98,7 @@ function Form() {
                     value="./assets/pngfind.com-purple-planet-png-4520924.png"
                     onChange={handleChange}
                 />
-                <label htmlFor="planetImage2"><img src="./assets/pngfind.com-planet-png-589786.png" alt="Desert Planet" /></label>
+                <label htmlFor="planetImage2"><img src="/assets/pngfind.com-planet-png-589786.png" alt="Desert Planet" /></label>
                 <input
                     id="planetImage2"
                     type="checkbox"
