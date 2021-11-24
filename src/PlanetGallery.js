@@ -1,6 +1,4 @@
 import { useState, useEffect } from 'react';
-import firebase from 'firebase';
-
 
 function PlanetGallery({ planetArray }) {
     const [userSelect, setUserSelect] = useState(false);
