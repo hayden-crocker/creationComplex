@@ -7,6 +7,7 @@ import backgroundImage from './pexels-photo-998641.jpeg'
 
 
 function App() {
+  // create state as a new array for the information from the database to be stored in
   const [planets, setPlanets] = useState([]);
 
   useEffect(() => {
@@ -19,6 +20,7 @@ function App() {
       
       const data = response.val();
 
+      // for every object in firebase, push it to the new array 
       for (let property in data) {
         newState.push({
           astralName: data[property].planetName,
@@ -43,6 +45,7 @@ function App() {
           planetArray={planets}
         />
       </header>
+      {/* I know this looks bad having inline styles, but react doesn't like images. I tried putting this in my assets folder, but netlify/term2 wouldn't compile this image otherwise */}
       <main style={{ backgroundImage: `url(${backgroundImage})` }}>
           <PlanetGallery
           planetArray={planets}

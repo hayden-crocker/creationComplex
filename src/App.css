@@ -17,6 +17,7 @@ code {
   font-family: source-code-pro, Menlo, Monaco, Consolas, 'Courier New',
     monospace;
 }
+/* General Styles  */
 
 img{
   width: 30%;
@@ -28,6 +29,8 @@ img{
   width: 75%;
   margin: 0 auto;
 }
+
+/* Header Styles  */
 
 header {
   text-align: left;
@@ -45,6 +48,8 @@ h1{
   font-size: 3.5rem;
   letter-spacing: 5px;
 }
+
+/* FORM styles */
 
 form {
   display: grid;
@@ -91,6 +96,8 @@ input:checked + label {
   border: 2px solid gold;
 }
 
+/* Button Styles */
+
 button{
   margin: 10px 5px;
   border: 2px solid gold;
@@ -108,6 +115,8 @@ button:hover,
 button:focus {
   border: 2px solid limegreen;
 }
+
+/* Main Section Styles  */
 
 main{
   display: grid; 
@@ -128,6 +137,8 @@ li {
   padding: 0;
 }
 
+/* Planet Information Styles  */
+
 .planetInfo {
   background-color: rgba(105, 114, 240, 0.543);
   border: 5px solid gold;
@@ -143,6 +154,8 @@ li {
   letter-spacing: 2px;
   line-height: 2rem;
 }
+
+/* Planet Gallery Cards Styles  */
 
 .planetGallery {
   padding: 20px 100px;
@@ -171,6 +184,7 @@ li {
   margin: 10px auto;
 }
 
+/* FOOTER */
 
 footer {
   text-align: center;
@@ -183,6 +197,8 @@ footer a {
   color: gold;
   text-decoration: none;
 }
+
+/* Responsive Styles */
 
 @media (max-width: 860px) {
   header {

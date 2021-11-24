@@ -4,6 +4,7 @@ import firebase from "./firebase.js";
 
 
 function Form() {
+    // create state for every input on the form, and store it inside an object
     const [userInput, setUserInput] = useState({
         planetName: "",
         terrain: "",
@@ -14,23 +15,33 @@ function Form() {
         population: 0
     });
 
+    // record changes to the inputs and store them in a variable 
     const handleChange = (event) => {
-            const target = event.target;
-            const value = target.value;
-            const name = target.name;
+        // save event.target as a variable 
+        const target = event.target;
+        // save event.target.value as a variable
+        const value = target.value;
+        // save event.target.name as a variable 
+        const name = target.name;
+        // for every key: value in the object, save it to state 
         setUserInput({
-                ...userInput,
-                [name]: value
+            // SPREAD OUT THE OBJECT. if it isn't spread, only the last input value will be saved to state 
+            ...userInput,
+            // save the value of the corresponding input name to state 
+            [name]: value
         });
     }
 
+    // event lisenter for the Form submission 
     const handleSubmit = (event) => {
         event.preventDefault();
     
         const dbRef = firebase.database().ref();
     
+        // send the state object to firebase 
         dbRef.push(userInput);
 
+        // when the form has been submitted, empty out the form 
         setUserInput({
             planetName: "",
             terrain: "",
