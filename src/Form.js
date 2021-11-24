@@ -89,7 +89,6 @@ function Form() {
             />
             <label htmlFor="src">Pick a Planet Piture</label>
             <div className="choosePlanet">
-                <label htmlFor="planetImage1"><img src="./assets/pngfind.com-purple-planet-png-4520924.png" alt="Purple Planet" /></label>
                 <input
                     id="planetImage1"
                     type="checkbox"
@@ -97,7 +96,7 @@ function Form() {
                     value="./assets/pngfind.com-purple-planet-png-4520924.png"
                     onChange={handleChange}
                 />
-                <label htmlFor="planetImage2"><img src="/assets/pngfind.com-planet-png-589786.png" alt="Desert Planet" /></label>
+                <label htmlFor="planetImage1"><img src="./assets/pngfind.com-purple-planet-png-4520924.png" alt="Purple Planet" /></label>
                 <input
                     id="planetImage2"
                     type="checkbox"
@@ -105,7 +104,7 @@ function Form() {
                     value='./assets/pngfind.com-planet-png-589786.png'
                     onChange={handleChange}
                 />
-                <label htmlFor="planetImage3"><img src="./assets/pngfind.com-captain-planet-png-6856012.png" alt="Captain Planet" /></label>
+                <label htmlFor="planetImage2"><img src="/assets/pngfind.com-planet-png-589786.png" alt="Desert Planet" /></label>
                 <input
                     id="planetImage3"
                     type="checkbox"
@@ -113,7 +112,7 @@ function Form() {
                     value="./assets/pngfind.com-captain-planet-png-6856012.png"
                     onChange={handleChange}
                 />
-                <label htmlFor="planetImage4"><img src="./assets/pngwing.com.png" alt="Green Planet" /></label>
+                <label htmlFor="planetImage3"><img src="./assets/pngfind.com-captain-planet-png-6856012.png" alt="Captain Planet" /></label>
                 <input
                     id="planetImage4"
                     type="checkbox"
@@ -121,6 +120,7 @@ function Form() {
                     value="./assets/pngwing.com.png"
                     onChange={handleChange}
                 />
+                <label htmlFor="planetImage4"><img src="./assets/pngwing.com.png" alt="Green Planet" /></label>
             </div>
             <button>Create Your Planet!</button>
         </form>

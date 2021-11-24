@@ -66,6 +66,7 @@ input{
 
 .choosePlanet {
   display: flex;
+  justify-content: center;
   align-items: center;
 }
 
@@ -74,12 +75,20 @@ label {
   margin: 10px;
   display: block;
   cursor: pointer;
-
 }
 
 label img {
   width: 90px;
   height: 90px;
+}
+
+input[type="checkbox"]{
+  background: gold;
+  color: #333;
+}
+
+input:checked + label {
+  border: 2px solid gold;
 }
 
 button{
@@ -92,6 +101,7 @@ button{
   font-family: 'Staatliches', cursive;
   letter-spacing: 2px;
   grid-row: 13 / 14;
+  cursor: pointer;
 }
 
 button:hover, 
@@ -192,8 +202,10 @@ footer a {
 
   .choosePlanet {
     margin: 0 auto;
-    width: 300px;
+    width: 320px;
+    justify-content: center;
     flex-wrap: wrap;
+    padding: 20px;
   }
 
   main {
@@ -209,22 +221,17 @@ footer a {
 
   .planetInfo {
     height: 200px;
+    background: rgb(88, 96, 216);
   }
 
-  .planetInfo ul {
-    display: grid;
-    grid-template-columns: 1fr 1fr;
-    gap: 20px;
+  .planetInfo ul{
+    display: flex;
+    flex-direction: column;
+    width: 90%;
   }
-
+  
   .planetInfo li {
-    line-height: 1rem;
-  }
-
-  .planetInfo li:first-of-type,
-  .planetInfo li:last-of-type{
-    grid-column: 1 / 3;
-    text-align: center;
+    line-height: 1.5rem;
   }
 
   .planetInfo h2 {
@@ -238,6 +245,33 @@ footer a {
   }
 }
 
-@media (max-width: 400px) {
+@media (max-width: 440px) {
+  form{
+    width: 80%;
+  }
+
+  .choosePlanet {
+    padding: 0;
+    width: 280px;
+  }
+
+  main {
+    display: flex;
+    flex-direction: column
+  };
   
+  .planetInfo li {
+    line-height: .5rem;
+  }
+
+  .planetGallery {
+    padding: 20px;
+  }
+
+  .planetGallery ul{
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+
+  }
 }

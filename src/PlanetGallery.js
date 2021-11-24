@@ -1,4 +1,5 @@
 import { useState, useEffect } from 'react';
+import firebase from 'firebase';
 
 
 function PlanetGallery({ planetArray }) {
@@ -23,6 +24,7 @@ function PlanetGallery({ planetArray }) {
     
     const handleLikes = () => {
         setLikes(likes + 1);
+
     }
 
     useEffect(() => {
