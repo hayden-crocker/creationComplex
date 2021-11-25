@@ -2,7 +2,9 @@ import { useState } from 'react';
 import firebase from "./firebase.js";
 
 
+
 function Form() {
+    // create state for every input on the form, and store it inside an object
     const [userInput, setUserInput] = useState({
         planetName: "",
         terrain: "",
@@ -13,24 +15,33 @@ function Form() {
         population: 0
     });
 
+    // record changes to the inputs and store them in a variable 
     const handleChange = (event) => {
-            const target = event.target;
-            const value = target.value;
-            const name = target.name;
+        // save event.target as a variable 
+        const target = event.target;
+        // save event.target.value as a variable
+        const value = target.value;
+        // save event.target.name as a variable 
+        const name = target.name;
+        // for every key: value in the object, save it to state 
         setUserInput({
-                ...userInput,
-                [name]: value
+            // SPREAD OUT THE OBJECT. if it isn't spread, only the last input value will be saved to state 
+            ...userInput,
+            // save the value of the corresponding input name to state 
+            [name]: value
         });
-        console.log(event.target)
     }
 
+    // event lisenter for the Form submission 
     const handleSubmit = (event) => {
         event.preventDefault();
     
         const dbRef = firebase.database().ref();
     
+        // send the state object to firebase 
         dbRef.push(userInput);
 
+        // when the form has been submitted, empty out the form 
         setUserInput({
             planetName: "",
             terrain: "",
@@ -89,7 +100,6 @@ function Form() {
             />
             <label htmlFor="src">Pick a Planet Piture</label>
             <div className="choosePlanet">
-                <label htmlFor="planetImage1"><img src='./assets/pngfind.com-purple-planet-png-4520924.png' alt="Purple Planet" /></label>
                 <input
                     id="planetImage1"
                     type="checkbox"
@@ -97,7 +107,7 @@ function Form() {
                     value="./assets/pngfind.com-purple-planet-png-4520924.png"
                     onChange={handleChange}
                 />
-                <label htmlFor="planetImage2"><img src="./assets/pngfind.com-planet-png-589786.png" alt="Desert Planet" /></label>
+                <label htmlFor="planetImage1"><img src="./assets/pngfind.com-purple-planet-png-4520924.png" alt="Purple Planet" /></label>
                 <input
                     id="planetImage2"
                     type="checkbox"
@@ -105,7 +115,7 @@ function Form() {
                     value='./assets/pngfind.com-planet-png-589786.png'
                     onChange={handleChange}
                 />
-                <label htmlFor="planetImage3"><img src="./assets/pngfind.com-captain-planet-png-6856012.png" alt="Captain Planet" /></label>
+                <label htmlFor="planetImage2"><img src="/assets/pngfind.com-planet-png-589786.png" alt="Desert Planet" /></label>
                 <input
                     id="planetImage3"
                     type="checkbox"
@@ -113,7 +123,7 @@ function Form() {
                     value="./assets/pngfind.com-captain-planet-png-6856012.png"
                     onChange={handleChange}
                 />
-                <label htmlFor="planetImage4"><img src="./assets/pngwing.com.png" alt="Green Planet" /></label>
+                <label htmlFor="planetImage3"><img src="./assets/pngfind.com-captain-planet-png-6856012.png" alt="Captain Planet" /></label>
                 <input
                     id="planetImage4"
                     type="checkbox"
@@ -121,6 +131,7 @@ function Form() {
                     value="./assets/pngwing.com.png"
                     onChange={handleChange}
                 />
+                <label htmlFor="planetImage4"><img src="./assets/pngwing.com.png" alt="Green Planet" /></label>
             </div>
             <button>Create Your Planet!</button>
         </form>
